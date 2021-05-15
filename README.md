@@ -9,7 +9,7 @@ How to run this project:
 
 1. Clone this project
 
-2. Create a database name it personal
+2. Create a database name it "personal"
 
 3. Run "npm install" to install all packages in package.json file.
 
