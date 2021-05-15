@@ -1,0 +1,287 @@
+<%- include('./includes/head') %>
+
+<style>
+    body{
+	font-family: 'Poppins', sans-serif;
+	background: linear-gradient(to bottom, #5ab8d8 0%, #c2bcd1 100%);
+	height: 100%;
+	background-repeat: no-repeat center center fixed;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.card{
+	width: 50rem; 
+	text-align:center; 
+	border-radius: 30px;
+}
+  </style>
+
+</head>
+<body>
+	<div class="card mx-auto">
+		<div class="card-body">
+			<form class="form-detail" action="/<% if (editing) { %>edit-student<%} else { %>add<% } %>" method="POST" id="myform">
+					<h2 class="text-center"><% if (editing) { %> Edit this Student <%} else { %> General Infomation <% } %></h2>
+	
+					<div class="form-group">
+					<div class="form-row">
+						<label for="studnumber"><strong>Student Number</strong></label>
+							<input  type="text"
+							id="studentNumber"
+							name="studentNumber"
+							class="form-control"
+							required 
+							value="<% if (editing) { %><%= stud.studentNumber %><% } %>"
+							placeholder="Student Number"/>
+						</div>
+					</div>
+						
+					<div class="form-group">
+						<div class="form-row form-row-2">
+							<label for="student Type"><strong>Student Type</strong></label>
+							<select name="studType" class="form-control" value="<% if (editing) { %><%= stud.studType %><% } %>">
+								<option>Select student Type</option>
+							    <option value="new">New Student</option>
+							    <option value="old">Old Student</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="form-row">
+						<label for="student Type"><strong>Lastname</strong></label>
+							<input  type="text"
+							id="lastname"
+							name="lastname"
+							class="form-control"
+							required
+							value="<% if (editing) { %><%= stud.lastname %><% } %>"
+							placeholder="Lastname"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Firstname</strong></label>
+							<input  type="text"
+							  id="firstname"
+							  name="firstname"
+							  class="form-control"
+							  value="<% if (editing) { %><%= stud.firstname %><% } %>"
+							  required
+							  placeholder="Firstname"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Middle Initial</strong></label>
+							<input type="text"
+							id="middleInitial"
+							name="middleInitial"
+							class="form-control"
+							value="<% if (editing) { %><%= stud.middleInitial %><% } %>"
+							required
+							placeholder="Middle Initial"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>House Number</strong></label>
+							<input  type="number"
+							id="housenum"
+							name="housenum"
+							class="form-control"
+							value="<% if (editing) { %><%= stud.housenum %><% } %>"
+							required
+							placeholder="House Number"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Street</strong></label>
+							<input  type="text"
+							id="street"
+							name="street"
+							class="form-control"
+							value="<% if (editing) { %><%= stud.street %><% } %>"
+							required
+							placeholder="Street"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Barangay</strong></label>
+							<input  type="text"
+							id="barangay"
+							name="barangay"
+							class="form-control"
+							value="<% if (editing) { %><%= stud.barangay %><% } %>"
+							required
+							placeholder="Barangay"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Municipality</strong></label>
+							<input  type="text"
+							id="municipality"
+							name="municipality"
+							class="form-control"
+							value="<% if (editing) { %><%= stud.municipality %><% } %>"
+							required
+							placeholder="Municipality"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>City</strong></label>
+							<input  type="text"
+							id="city"
+							name="city"
+							class="form-control"
+							value="<% if (editing) { %><%= stud.city %><% } %>"
+							required
+							placeholder="city"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Birthday</strong></label>
+							<input  id="Birthday"class="form-control"  type="date" name="birthDay" maxlength="10" placeholder="mm/dd/yyyy" 
+							value="<% if (editing) { %><%= stud.birthDay %><% } %>"
+							/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Age</strong></label>
+							<input  type="text" name="age" class="form-control"  id="age" placeholder="Age"
+							value="<% if (editing) { %><%= stud.age %><% } %>"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+						<label for="student Type"><strong>Contact Number</strong></label>
+						   <input  type="number"
+						   id="cnumber"
+						   name="cnumber"
+						   class="form-control"
+						   required
+						   value="<% if (editing) { %><%= stud.cnumber %><% } %>"
+						   placeholder="Contact Number"/>
+					   </div>  
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Email</strong></label>
+							<input  type="email"
+							id="email"
+							name="email"
+							class="form-control"
+							required
+							value="<% if (editing) { %><%= stud.email %><% } %>"
+							placeholder="Email"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Gender</strong></label>
+							<select name="gender"class="form-control"value="<% if (editing) { %><%= stud.gender %><% } %>">
+							    <option value="male">Male</option>
+							    <option value="female">Female</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Nationality</strong></label>
+						  <input  type="text"
+							id="nationality"
+							name="nationality"
+							class="form-control"
+							value="<% if (editing) { %><%= stud.nationality %><% } %>"
+							required
+							placeholder="Nationality"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Religion</strong></label>
+							<input  type="text"
+							id="religion"
+							name="religion"
+							value="<% if (editing) { %><%= stud.religion %><% } %>"
+							class="form-control"
+							required
+							placeholder="Religion"/>
+							</div>
+					</div>				
+			
+					<h2><% if (editing) { %><%} else { %> Student Record Information <% } %></h2>
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>College Department</strong></label>
+							<input   type="text"
+						   id="collegeDepartment"
+						   name="collegeDepartment"
+						   class="form-control"
+						   required
+						   value="<% if (editing) { %><%= stud.collegeDepartment %><% } %>"
+						   placeholder="College Department"/>
+					   </div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Course</strong></label>
+							<input type="text"
+							id="course"
+							name="course"
+							class="form-control"
+							required
+							value="<% if (editing) { %><%= stud.course %><% } %>"
+							placeholder="Course"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<label for="student Type"><strong>Year</strong></label>
+							<input  type="text"
+							id="year"
+							name="year"
+							class="form-control"
+							required
+							value="<% if (editing) { %><%= stud.year %><% } %>"
+							placeholder="Year"/>
+						</div>
+					</div>
+
+					<% if (editing) { %>
+						<input type="hidden" value="<%= stud.id %>" name="studentId">
+					<% } %>
+
+					<div class="form-row-last">
+						    <!-- <button class="btn btn-primary" type="submit">Register</button> -->
+							<button class="btn btn-success" type="submit"><% if (editing) { %> Update Student <%} else { %> Add Student <% } %></button>
+							<a href="/dashboard" class="btn btn-warning">View Record</a>
+					</div>
+			</form>
+		</div>
+	</div>
+
+<%- include('./includes/footer.ejs') %>

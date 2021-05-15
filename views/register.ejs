@@ -1,0 +1,74 @@
+<%- include('./includes/head') %>
+<link rel="stylesheet" href="/css/registercss/style2.css">
+<link rel="stylesheet" href="/css/registercss/style2.scss">
+
+              <div class="wrapper" style="background-image: url('/image/1.3.jpg'); ">
+                <div class="inner ">
+                    <div class="image-holder">
+                        <img src="/image/register.jpg" alt="">
+                    </div>
+             
+                    <form action="/users/register" method="POST" class="mt-4">
+                        <h3><strong>Admin Registration Form</strong></h3>
+                        <%- include('./partials/messages') %>
+                        <div class="form-wrapper">
+                            <input  type="name"
+                            id="name"
+                            name="name"
+                            class="form-control"
+                            placeholder="Full Name"
+                            value="<%= typeof name != 'undefined' ? name : '' %>"
+                          />
+                        </div>
+                        <div class="form-wrapper">
+                          <input  type="name"
+                          id="nickname"
+                          name="nickname"
+                          class="form-control"
+                          placeholder="Nickname"
+                          value="<%= typeof name != 'undefined' ? nickname : '' %>"
+                        />
+                      </div>
+                        <div class="form-wrapper">
+                            <input   type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter Email"
+                            value="<%= typeof email != 'undefined' ? email : '' %>"
+                          />
+                            <i class="zmdi zmdi-account"></i>
+                        </div>
+                        <div class="form-wrapper">
+                            <input type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Create Password"
+                            value="<%= typeof password != 'undefined' ? password : '' %>"
+                          />
+                            <i class="zmdi zmdi-email"></i>
+                        </div>
+                        <div class="form-wrapper">
+                            <input             type="password"
+                            id="password2"
+                            name="password2"
+                            class="form-control"
+                            placeholder="Confirm Password"
+                            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+                          />
+                            <i class="zmdi zmdi-lock"></i>
+                        </div>
+            
+                        <button>Register
+                            <i class="zmdi zmdi-arrow-right"></i>
+                        </button>
+                        <div class="footer mt-3">
+                          <h5>Have an account? <a href="/" class="text-reset">Login here</a></h5>
+                        </div>
+                    </form>
+ 
+                </div>
+            </div>
+            
+  <%- include('./includes/footer') %>

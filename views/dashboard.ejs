@@ -1,0 +1,160 @@
+  <%- include('./includes/head') %>
+  <style>
+    body{
+	font-family: 'Poppins', sans-serif;
+	background: linear-gradient(to bottom, #5ab8d8 0%, #c2bcd1 100%);
+	height: 100%;
+	background-repeat: no-repeat center center fixed;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.card{
+	width: 50rem; 
+	text-align:center; 
+	border-radius: 30px;
+}
+  </style>
+  <link rel="stylesheet" href="/css/dashboard.css">
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header text-center">
+                <h3>Welcome</h3>
+       
+            </div>
+            <ul class="components text-center">
+              <li class="nav-item">
+                  <a class="nav-link" href="/users/logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Page Content Holder -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                        <h4></h4>
+                </div>
+            </nav>
+                <!--  Content starts here -->
+
+                <%- include('./includes/head') %>
+            </head>
+            <body>
+            
+            
+              
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/dashboard">Student Record</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                  
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="/add-student">Add student</span></a>
+                        </li>
+                      </ul>
+                      
+                      <form class="form-inline my-2 my-lg-0 search-form" action="/dashboard/search">
+                        <input type="search" class="form-control" required name="term" placeholder="Search by Religion">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">Search</button>
+                      </form>
+                    </div>
+                  </nav>
+                  
+            <!-- 
+                  <form action="/student/search" class="search-form">
+                    <div class="form-group">
+                        <input type="search" class="form-control" required name="term" placeholder="Search by Religion">
+                        <button  type="submit" class="btn btn-primary form-control"value="Search">Search</button>
+                    </div>
+                  </form> -->
+                    <div class="container mt-5">   
+                        <%- include('partials/messages.ejs') %>
+                    </div>
+                        <h1 class="text-center">Student Information</h1>
+            
+                    <% if (stud.length > 0) { %>
+                  
+                            <table class="text-center ml-3"  border="1" cellpadding="15" style="width:100%">
+                                <tr>
+                                    <th>id</th>
+                                    <th>Student Type</th>
+                                    <th>Student Number</th>
+                                    <th>Last Name</th>
+                                    <th>First Name</th>
+                                    <th>Middle Initial</th>
+                                    <th>Birthday</th>
+                                    <th>age</th>
+                                    <th>Contact Number</th>
+                                    <th>House Number</th>
+                                    <th>Street</th>
+                                    <th>Barangay</th>
+                                    <th>Municipality</th>
+                                    <th>City</th>
+                                    <th>Gender</th>
+                                    <th>Email</th>
+                                    <th>Nationality</th>
+                                    <th>religion</th>
+                                    <th>collegeDepartment</th>
+                                    <th>course</th>
+                                    <th>year</th>
+                                    <th>action</th>
+                                </tr>
+                                <tr>
+                                <% for (let product of stud) { %>
+                                    <td><%= product.id %></td>
+                                    <td><%= product.studType %></td>
+                                    <td><%= product.studentNumber %></td>
+                                    <td><%= product.lastname %></td>
+                                    <td><%= product.firstname %></td>
+                                    <td><%= product.middleInitial %></td>
+                                    <td><%= product.birthDay %></td>
+                                    <td><%= product.age %></td>
+                                    <td><%= product.cnumber %></td>
+                                    <td><%= product.housenum %></td>
+                                    <td><%= product.street %></td>
+                                    <td><%= product.barangay %></td>
+                                    <td><%= product.municipality %></td>
+                                    <td><%= product.city %></td>
+                                    <td><%= product.gender %></td>
+                                    <td><%= product.email %></td>
+                                    <td><%= product.nationality %></td>
+                                    <td><%= product.religion %></td>
+                                    <td><%= product.collegeDepartment %></td>
+                                    <td><%= product.course %></td>
+                                    <td><%= product.year %></td>
+                                    <td>
+                                        <input type="hidden" value="<%= product.id %>" name="studentId">
+                                        <a href="/edit-student/<%= product.id %>?edit=true" class="btn btn-warning">Edit</a>
+                                    </td>
+                                    <td>
+                                        <form action="/delete-student" method="POST">
+                                            <input type="hidden" value="<%= product.id %>" name="studentId">
+                                            <button class="btn btn-danger " type="submit">Delete</button>
+                                          </form>          
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </table>
+                    <% } else { %>
+                        <div class="container">
+                            <h1>No Student Found!</h1>
+                            <a href="/student" class="btn btn-primary">Return</a> <br> 
+                        </div>
+                            <% } %>
+            <%- include('./includes/footer.ejs') %>
+
+            
+          </div>
+ 
+  <%- include('./includes/footer') %>
+  <script src='/js/dashboard.js'></script>

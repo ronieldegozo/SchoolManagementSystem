@@ -1,0 +1,65 @@
+  <!-- ======= Header ======= -->
+  <header id="header" class="header" data-aos="fade-in">
+    <div class="container">
+  
+      <div id="logo" class="pull-left">
+        <h1 ><a><span>R</span>oniel</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        </li>
+          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+            <a class="nav-link" href="https://ronieldegozo.netlify.app/">Portfolio</a>
+          </li>
+          <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+            <a class="nav-link" type="button" data-toggle="modal" data-target="#login" >Login</a>
+          </li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- End Header -->
+
+
+<!-- Modal Login -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><strong style="color: black;">Login Admin</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <form action="/users/login" method="POST">
+            <%- include('../partials/messages') %>
+            <div class="form-group">
+              <label for="email"><strong>Email</strong></label>
+              <input  type="email" id="email" name="email" class="form-control " placeholder="Enter Email" required >
+            </div>
+            
+            <div class="form-group mb-4">
+              <label for="password"><strong>Password</strong></label>
+              <input   type="password" id="password" name="password" class="form-control" placeholder="Enter Password"required > 
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </form>
+        </div>
+        <div class="card-footer ">
+          <p class="login-wrapper-footer-text">Don't have an account? <a href="/users/register" class="text-reset">Register here</a></p>
+        </div>
+     </div>
+
+    </div>
+  </div>
+</div>
+  
