@@ -14,28 +14,22 @@ const Personal = sequelize.define('personal', {
   },
   studentNumber: {
     type: Sequelize.STRING,
-    allowNull: false,
     unique: true
   },
   lastname: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   firstname: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   middleInitial: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   birthDay: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   age: {
-    type: Sequelize.INTEGER,
-    allowNull: false
+    type: Sequelize.INTEGER
   },
 
   housenum: {
@@ -58,9 +52,6 @@ const Personal = sequelize.define('personal', {
     type: Sequelize.STRING,
     allowNull: false
   },
-
-
-
 
   cnumber: {
     type: Sequelize.BIGINT,
