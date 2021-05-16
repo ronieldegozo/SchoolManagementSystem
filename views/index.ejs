@@ -31,7 +31,7 @@
 							id="studentNumber"
 							name="studentNumber"
 							class="form-control"
-							required 
+							required  <% if (editing) { %>disabled<%} else { %><% } %>
 							value="<% if (editing) { %><%= stud.studentNumber %><% } %>"
 							placeholder="Student Number"/>
 						</div>
@@ -55,7 +55,7 @@
 							id="lastname"
 							name="lastname"
 							class="form-control"
-							required
+							required  <% if (editing) { %>disabled<%} else { %><% } %>
 							value="<% if (editing) { %><%= stud.lastname %><% } %>"
 							placeholder="Lastname"/>
 						</div>
@@ -66,10 +66,10 @@
 							<label for="student Type"><strong>Firstname</strong></label>
 							<input  type="text"
 							  id="firstname"
-							  name="firstname"
+							  name="firstname" 
 							  class="form-control"
 							  value="<% if (editing) { %><%= stud.firstname %><% } %>"
-							  required
+							  required  <% if (editing) { %>disabled<%} else { %><% } %>
 							  placeholder="Firstname"/>
 						</div>
 					</div>
@@ -82,7 +82,7 @@
 							name="middleInitial"
 							class="form-control"
 							value="<% if (editing) { %><%= stud.middleInitial %><% } %>"
-							required
+							required  <% if (editing) { %>disabled<%} else { %><% } %>
 							placeholder="Middle Initial"/>
 						</div>
 					</div>
@@ -155,7 +155,12 @@
 					<div class="form-group">
 						<div class="form-row">
 							<label for="student Type"><strong>Birthday</strong></label>
-							<input  id="Birthday"class="form-control"  type="date" name="birthDay" maxlength="10" placeholder="mm/dd/yyyy" 
+							<input  id="Birthday"
+							class="form-control" 
+							type="date" name="birthDay"
+							maxlength="10"
+							required  <% if (editing) { %>disabled<%} else { %><% } %>
+							placeholder="mm/dd/yyyy" 
 							value="<% if (editing) { %><%= stud.birthDay %><% } %>"
 							/>
 						</div>
@@ -164,7 +169,12 @@
 					<div class="form-group">
 						<div class="form-row">
 							<label for="student Type"><strong>Age</strong></label>
-							<input  type="text" name="age" class="form-control"  id="age" placeholder="Age"
+							<input  type="text" 
+							name="age"
+							class="form-control"
+							id="age"
+							required  <% if (editing) { %>disabled<%} else { %><% } %>
+							placeholder="Age"
 							value="<% if (editing) { %><%= stud.age %><% } %>"/>
 						</div>
 					</div>
