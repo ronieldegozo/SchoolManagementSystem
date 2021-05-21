@@ -12,11 +12,13 @@ exports.getIndex = (req,res,next) =>{
 
 //ADD NEW STUDENTS
  exports.postAddUser = (req, res, next) => {
-    const {studType,studentNumber,lastname,firstname,middleInitial,birthDay,age,housenum,street,barangay,municipality,city,
+    const {studType,studentNumber,lastname,firstname,middleInitial,birthday,age,housenum,street,barangay,municipality,city,
        cnumber,email,gender,nationality,religion,collegeDepartment,course,year
       } = req.body;
     
       console.log(studentNumber);
+
+
     
       Personal.findAll({ where: { id: studentNumber } })
       if(studentNumber > 0) {
@@ -26,7 +28,7 @@ exports.getIndex = (req,res,next) =>{
           lastname: lastname,
           firstname: firstname,
           middleInitial: middleInitial,
-          birthDay: birthDay,
+          birthday: birthday,
           age: age,
           housenum: housenum,
           street:street,
@@ -42,6 +44,7 @@ exports.getIndex = (req,res,next) =>{
           course: course,
           year: year,
       })
+      
     
         .then(result =>{
           // console.log('User Created Successfully');
@@ -79,9 +82,9 @@ exports.getStudent = (req,res,next) =>{
   .catch((err)=>{
     console.log(err);
   })
-
   
 }
+
 
 //EDIT = FETCH STUDENT INFORMATION 
 exports.getEditStudent = (req, res, next) => {
@@ -110,9 +113,9 @@ exports.getEditStudent = (req, res, next) => {
 
     })
     .catch(err => console.log(err));
-
-    
 };
+
+
 
 //POST EDIT STUDENT INFORMATION
 exports.postEditStudent = (req,res,next) =>{
@@ -122,7 +125,7 @@ exports.postEditStudent = (req,res,next) =>{
   const uplastname = req.body.lastname;
   const upfirstname = req.body.firstname;
   const upmiddleInitial = req.body.middleInitial;
-  const upbirthDay = req.body.birthDay;
+  const upbirthday = req.body.birthday;
   const upage = req.body.age;
   const uphousenum = req.body.housenum;
   const upstreet = req.body.street;
@@ -138,7 +141,6 @@ exports.postEditStudent = (req,res,next) =>{
   const upcourse = req.body.course;
   const upyear = req.body.year;
 
-  
   Personal.findByPk(studId)
     .then(students => {
       students.studType = upstudType;
@@ -146,7 +148,7 @@ exports.postEditStudent = (req,res,next) =>{
       students.lastname = uplastname;
       students.firstname = upfirstname;
       students.middleInitial = upmiddleInitial;
-      students.birthDay = upbirthDay;
+      students.birthday = upbirthday;
       students.age = upage;
       students.housenum = uphousenum;
       students.street = upstreet;
@@ -201,7 +203,6 @@ exports.searchStudent = (req, res) =>{
        religion : { [Op.like]: '%' + term + '%' }  
       }
   })
-
       .then((gigs) =>{
            res.render('dashboard', {
               stud: gigs,

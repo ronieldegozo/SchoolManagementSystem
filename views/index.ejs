@@ -155,10 +155,15 @@
 					<div class="form-group">
 						<div class="form-row">
 							<label for="student Type"><strong>Birthday</strong></label>
-							<input  id="Birthday"
+							<input 
+							id="birthday" 
+							type="date"
+							name="birthday" 
+							maxlength="10" 
+							placeholder="mm/dd/yyyy" 
+							onkeyup="getAgeVal(0)" 
+							onblur="getAgeVal(0);" 
 							class="form-control" 
-							type="date" name="birthDay"
-							maxlength="10"
 							required  <% if (editing) { %>disabled<%} else { %><% } %>
 							placeholder="mm/dd/yyyy" 
 							value="<% if (editing) { %><%= stud.birthDay %><% } %>"
@@ -169,10 +174,11 @@
 					<div class="form-group">
 						<div class="form-row">
 							<label for="student Type"><strong>Age</strong></label>
-							<input  type="text" 
-							name="age"
-							class="form-control"
-							id="age"
+							<input  
+							name="age" 
+							id="age" 
+							class="form-control" 
+							placeholder="Age"
 							required  <% if (editing) { %>disabled<%} else { %><% } %>
 							placeholder="Age"
 							value="<% if (editing) { %><%= stud.age %><% } %>"/>
@@ -293,5 +299,6 @@
 			</form>
 		</div>
 	</div>
-
+	<!-- calculating age according to birthday -->
+	<script src="js/date.js" ></script>
 <%- include('./includes/footer.ejs') %>

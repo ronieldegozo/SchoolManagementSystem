@@ -25,11 +25,11 @@ const Personal = sequelize.define('personal', {
   middleInitial: {
     type: Sequelize.STRING
   },
-  birthDay: {
-    type: Sequelize.STRING
+  birthday: {
+    type: Sequelize.DATE
   },
   age: {
-    type: Sequelize.INTEGER
+    type: Sequelize.STRING
   },
 
   housenum: {
