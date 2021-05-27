@@ -6,7 +6,7 @@ const passport = require('passport');
 const bodyparser = require('body-parser');
 
 const sequelize = require('./api/util/database');
-
+const Subject = require('./api/models/Subject');
 const {get404} = require('./api/controller/404');
 
 
@@ -53,7 +53,7 @@ app.use((req,res,next)=>{
     next();
 })
 
-
+app.use(Subject);
 app.use('/', require('./api/routes/index'));
 app.use('/users', require('./api/routes/users'));
 app.use(require('./api/routes/student'));
