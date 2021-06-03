@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const passport = require('passport');
 const Personal = require('../models/Student');
+const Subject = require('../models/Subject');
 
 
 exports.userHome = (req, res) => 
@@ -120,3 +121,61 @@ exports.userLogout = (req, res) => {
     req.flash('success_msg', 'You are logged out');
     res.redirect('/');
   }
+
+
+
+
+
+  //get add subject
+  exports.getAddSubject = (req, res) => {
+      res.render('admin/addSubject', {
+          pageTitle: 'Add Subject',
+          editing: false
+      })
+  }
+
+  exports.postAddSubject = (req, res) => {
+      const {subjectCode, subjectName, units, hour, subjectCategory, facultyName} = req.body;
+
+
+      Subject.create({
+        subjectCode: subjectCode,
+        subjectName: subjectName,
+        units: units,
+        hour: hour,
+        subjectCategory: subjectCategory,
+        facultyName: facultyName
+      })
+
+      .then(result =>{
+          console.log(result);
+          res.redirect('dashboard');
+      })
+
+
+      .catch((err) =>{
+          console.log(err)
+      })
+  }
+
+
+  //display list of subject
+  exports.getDashboardSubject = (req, res) =>{
+    
+    Subject.findAll()
+
+    .then((subjects)=>{
+        res.render('admin/subjectDashboard', {
+            pageTitle: 'Subjects',
+            sub: subjects
+        })
+    })
+
+    .catch((err) =>{
+        console.log(err);
+    })
+
+  }
+
+
+

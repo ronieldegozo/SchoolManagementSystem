@@ -18,8 +18,6 @@ exports.getIndex = (req,res,next) =>{
     
       console.log(studentNumber);
 
-
-    
       Personal.findAll({ where: { id: studentNumber } })
       if(studentNumber > 0) {
         Personal.create({

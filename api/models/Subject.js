@@ -17,11 +17,11 @@ const Subject = sequelize.define('subject', {
     allowNull: false
   },
   units: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false
   },
   hour: {
-    type: Sequelize.TIME,
+    type: Sequelize.INTEGER,
     allowNull: false
   }, 
   subjectCategory: {
