@@ -1,0 +1,124 @@
+<%- include('../includes/head') %>
+
+
+<style>
+    body{
+	font-family: 'Poppins', sans-serif;
+	background: linear-gradient(to bottom, #5ab8d8 0%, #c2bcd1 100%);
+	height: 100%;
+	background-repeat: no-repeat center center fixed;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.card{
+	width: 50rem; 
+	text-align:center; 
+	border-radius: 30px;
+}
+  </style>
+
+</head>
+<body>
+	<div class="card mx-auto">
+		<div class="card-body">
+			<form class="form-detail" action="/<% if (editing) { %>edit-subject<%} else { %>add-subject<% } %>" method="POST" id="myform">
+					<h2 class="text-center"><% if (editing) { %> Edit this Student <%} else { %> Add Subject <% } %></h2>
+	
+					<div class="form-group">
+					<div class="form-row">
+						<label for="studnumber"><strong>Subject Code</strong></label>
+							<input  type="text"
+							id="subjectCode"
+							name="subjectCode"
+							class="form-control"
+							required  <% if (editing) { %>disabled<%} else { %><% } %>
+							value="<% if (editing) { %><%= stud.subjectCode %><% } %>"
+							placeholder="Subject Code"/>
+						</div>
+					</div>
+						
+
+                    <div class="form-group">
+						<div class="form-row">
+						<label for="student Type"><strong>Subject Name</strong></label>
+							<input  type="text"
+							id="subjectName"
+							name="subjectName"
+							class="form-control"
+							required  <% if (editing) { %>disabled<%} else { %><% } %>
+							value="<% if (editing) { %><%= stud.subjectName %><% } %>"
+							placeholder="Subject Name"/>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="form-row form-row-2">
+							<label for="Units"><strong>Units</strong></label>
+							<select name="units" class="form-control" value="<% if (editing) { %><%= stud.units %><% } %>">
+								<option>Select student Type</option>
+							    <option value="lecture">Lecture</option>
+							    <option value="laboratory">Lab</option>
+							</select>
+						</div>
+					</div>
+
+
+                    <div class="form-group">
+						<div class="form-row">
+						<label for="student Type"><strong>Hour</strong></label>
+							<input  type="number"
+							id="hour"
+							name="hour"
+							class="form-control"
+							required  <% if (editing) { %>disabled<%} else { %><% } %>
+							value="<% if (editing) { %><%= stud.hour %><% } %>"
+							placeholder="Hour"/>
+						</div>
+					</div>
+
+
+                    
+					<div class="form-group">
+						<div class="form-row form-row-2">
+							<label for="student Type"><strong>Subject Category</strong></label>
+							<select name="subjectCategory" class="form-control" value="<% if (editing) { %><%= stud.subjectCategory %><% } %>">
+								<option>Select student Type</option>
+							    <option value="major">Major</option>
+							    <option value="minor">Minor</option>
+                                <option value="gen">Gen</option>
+							    <option value="ed">Ed</option>
+							</select>
+						</div>
+					</div>
+
+                    <div class="form-group">
+						<div class="form-row">
+						<label for="student Type"><strong>faculty Name</strong></label>
+							<input  type="text"
+							id="facultyName"
+							name="facultyName"
+							class="form-control"
+							required  <% if (editing) { %>disabled<%} else { %><% } %>
+							value="<% if (editing) { %><%= stud.facultyName %><% } %>"
+							placeholder="Faculty Name"/>
+						</div>
+					</div>
+
+					<% if (editing) { %>
+						<input type="hidden" value="<%= stud.id %>" name="subjectId">
+					<% } %>
+
+					<div class="form-row-last">
+						    <!-- <button class="btn btn-primary" type="submit">Register</button> -->
+							<button class="btn btn-success" type="submit"><% if (editing) { %> Update Student <%} else { %> Add Subject <% } %></button>
+							<a href="/dashboard" class="btn btn-warning">View Record</a>
+					</div>
+			</form>
+		</div>
+	</div>
+
+
+
+<%- include('../includes/footer') %>
