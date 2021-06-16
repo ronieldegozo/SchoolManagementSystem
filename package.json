@@ -36,9 +36,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ronieldegozo/SchoolManagementSystem.git"
-  },
-  "author": "IPT Project",
-  "license": "ISC"
+  }
 }
 
 
