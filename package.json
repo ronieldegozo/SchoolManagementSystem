@@ -32,5 +32,13 @@
     "mysql2": "^2.2.5",
     "nodemon": "^1.18.9",
     "sequelize": "^6.6.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronieldegozo/SchoolManagementSystem.git"
+  },
+  "author": "IPT Project",
+  "license": "ISC"
 }
+
+
