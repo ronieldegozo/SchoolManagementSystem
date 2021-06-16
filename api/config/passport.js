@@ -37,16 +37,15 @@ passport.serializeUser((user, done)  =>{
   done(null, user.id);
 });
 
+
   passport.deserializeUser((id, done, user, err) =>{
-
-    User.findAll({WHERE: {id: user}}, id)
-      .then((user) => {
+    //find by specific user id
+    User.findByPk(id, (err, user))
+      .then((user) =>{
         return done(null, user);
-      }).catch(error => {
-          return done(error, null)
-      });
-
+      })
+      .catch(err =>{
+        return done(err, null)
+      })
     });
-
-
 };

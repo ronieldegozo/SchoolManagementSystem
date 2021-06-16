@@ -13,7 +13,7 @@ exports.userHome = (req, res) =>
 })
 
 exports.getUserRegister = (req, res) => 
-    res.render('register', {
+    res.render('register', { 
     pageTitle: 'Register'
 })
 
@@ -25,8 +25,8 @@ Personal.findAll()
 .then((students)=>{
   res.render('dashboard', {
     stud: students,
+    pageTitle: 'Dashboard',
     user: req.user,
-    pageTitle: 'Dashboard'
     // name: true
   });
   // console.log(students);
@@ -167,7 +167,8 @@ exports.userLogout = (req, res) => {
     .then((subjects)=>{
         res.render('admin/subjectDashboard', {
             pageTitle: 'Subjects',
-            sub: subjects
+            sub: subjects,
+            user: req.user
         })
     })
 

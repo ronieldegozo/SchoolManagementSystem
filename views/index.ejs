@@ -9,7 +9,6 @@
 	background-size: cover;
 	background-attachment: fixed;
 }
-
 .card{
 	width: 50rem; 
 	text-align:center; 
@@ -166,7 +165,7 @@
 							class="form-control" 
 							required  <% if (editing) { %>disabled<%} else { %><% } %>
 							placeholder="mm/dd/yyyy" 
-							value="<% if (editing) { %><%= stud.birthDay %><% } %>"
+							value="<% if (editing) { %><%= stud.birthday %><% } %>"
 							/>
 						</div>
 					</div>

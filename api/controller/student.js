@@ -19,7 +19,7 @@ exports.getIndex = (req,res,next) =>{
       console.log(studentNumber);
 
       Personal.findAll({ where: { id: studentNumber } })
-      if(studentNumber > 0) {
+    
         Personal.create({
           studType: studType,
           studentNumber: studentNumber,
@@ -56,11 +56,6 @@ exports.getIndex = (req,res,next) =>{
           console.log(err);
         })
 
-      }else{
-        console.log('Student Number Exist');
-        req.flash('exist_msg','Student Number already Exist'); 
-        res.redirect('/');
-      }
     
   };
   
