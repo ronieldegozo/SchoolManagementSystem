@@ -1,5 +1,5 @@
 const express = require('express');
-const { getStudent,  getEditStudent,postEditStudent,deleteStudent,searchStudent } = require('../controller/student');
+const { getStudent,  getEditStudent,postEditStudent,deleteStudent,enrollment,searchStudent } = require('../controller/student');
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 const router = express.Router();
 
@@ -15,6 +15,7 @@ router.post('/edit-student', postEditStudent);
 //delete student
 router.post('/delete-student/', deleteStudent);
 
+router.get('/student-enrollment', enrollment);
 
 //search student
 router.get('/dashboard/search', searchStudent); 

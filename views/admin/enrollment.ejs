@@ -1,0 +1,65 @@
+<%- include('../includes/head') %>
+<style>
+  body{
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #5ab8d8 0%, #c2bcd1 100%);
+  height: 100%;
+  background-repeat: no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.card{
+  width: 50rem; 
+  text-align:center; 
+  border-radius: 30px;
+}
+</style>
+<link rel="stylesheet" href="/css/dashboard.css">
+
+  <div class="wrapper">
+      <!-- Sidebar Holder -->
+
+      <%- include('../includes/menulist') %>
+      
+      <!-- Page Content Holder -->
+      <div id="content">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+                  <button type="button" id="sidebarCollapse" class="navbar-btn">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+                      <h4></h4>
+              </div>
+          </nav>
+
+
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <a class="navbar-brand" href="/subject">Subject Record</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="/add-student">Add student</span></a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="/add-subject">Add Subject</span></a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="/student-enrollment">Enroll Student</span></a>
+                      </li>
+                    </ul>
+                    
+                  </div>
+                </nav>
+                
+                
+        </div>
+
+<%- include('../includes/footer') %>
+

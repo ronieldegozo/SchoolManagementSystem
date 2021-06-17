@@ -207,3 +207,12 @@ exports.searchStudent = (req, res) =>{
           console.log(err);
       })
 }
+
+
+
+exports.enrollment = (req, res,next) =>{
+  res.render('admin/enrollment', {
+    pageTitle: 'Enrollment',
+    user: req.user,
+  })
+}
