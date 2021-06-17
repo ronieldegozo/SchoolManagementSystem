@@ -15,7 +15,7 @@ router.post('/edit-student', postEditStudent);
 //delete student
 router.post('/delete-student/', deleteStudent);
 
-router.get('/student-enrollment', enrollment);
+router.get('/student-enrollment', ensureAuthenticated, enrollment);
 
 //search student
 router.get('/dashboard/search', searchStudent); 
