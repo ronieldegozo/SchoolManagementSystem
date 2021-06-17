@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
-const { userDashboard, userHome ,getAddSubject, postAddSubject, getDashboardSubject} = require('../controller/users');
+const { userDashboard, userHome ,getAddSubject, postAddSubject, postDeleteSubject, getDashboardSubject} = require('../controller/users');
 const {getIndex,postAddUser } = require('../controller/student');
 
 // Welcome Page
@@ -21,8 +21,12 @@ router.get('/add-subject',ensureAuthenticated, getAddSubject );
 
 router.post('/add-subject', postAddSubject );
 
+router.post('/delete-subject', postDeleteSubject );
+
 //LIST OF SUBJECT
 router.get('/subject',ensureAuthenticated, getDashboardSubject);
+
+
 
 
 

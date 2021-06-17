@@ -108,8 +108,8 @@
                                       <a href="/edit-student/<%= subject.id %>?edit=true" class="btn btn-warning">Edit</a>
                                   </td>
                                   <td>
-                                      <form action="/delete-student" method="POST">
-                                          <input type="hidden" value="<%= subject.id %>" name="studentId">
+                                      <form action="/delete-subject" method="POST">
+                                          <input type="hidden" value="<%= subject.id %>" name="subjectId">
                                           <button class="btn btn-danger " type="submit">Delete</button>
                                         </form>          
                                   </td>

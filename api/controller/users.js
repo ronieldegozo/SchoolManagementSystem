@@ -159,6 +159,28 @@ exports.userLogout = (req, res) => {
   }
 
 
+//delete subject
+exports.postDeleteSubject = (req,res,next) => {
+    const subjectId = req.body.subjectId;
+
+  
+    Subject.destroy({ where: { id: subjectId } })
+      .then(student => {
+        console.log('DESTROYED SUBJECT');
+        res.redirect('subject');
+        req.flash('delete_msg','User Delete Successfully'); 
+        return;
+      })
+      // .then(student => {
+      //   console.log('DESTROYED PRODUCT');
+      //   req.flash('delete_msg','User Delete Successfully'); 
+      //   res.redirect('student');
+      // })
+      .catch(err => console.log(err));
+  }
+
+
+
   //display list of subject
   exports.getDashboardSubject = (req, res) =>{
     
