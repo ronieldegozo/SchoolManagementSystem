@@ -32,7 +32,7 @@
 							id="subjectCode"
 							name="subjectCode"
 							class="form-control"
-							required  <% if (editing) { %>disabled<%} else { %><% } %>
+							required  
 							value="<% if (editing) { %><%= stud.subjectCode %><% } %>"
 							placeholder="Subject Code"/>
 						</div>
@@ -46,7 +46,7 @@
 							id="subjectName"
 							name="subjectName"
 							class="form-control"
-							required  <% if (editing) { %>disabled<%} else { %><% } %>
+							required  
 							value="<% if (editing) { %><%= stud.subjectName %><% } %>"
 							placeholder="Subject Name"/>
 						</div>
@@ -57,7 +57,7 @@
 						<div class="form-row form-row-2">
 							<label for="Units"><strong>Units</strong></label>
 							<select name="units" class="form-control" value="<% if (editing) { %><%= stud.units %><% } %>">
-								<option>Select student Type</option>
+								<option>Select subject Type</option>
 							    <option value="lecture">Lecture</option>
 							    <option value="laboratory">Lab</option>
 							</select>
@@ -72,7 +72,7 @@
 							id="hour"
 							name="hour"
 							class="form-control"
-							required  <% if (editing) { %>disabled<%} else { %><% } %>
+							required  
 							value="<% if (editing) { %><%= stud.hour %><% } %>"
 							placeholder="Hour"/>
 						</div>
@@ -100,7 +100,7 @@
 							id="facultyName"
 							name="facultyName"
 							class="form-control"
-							required  <% if (editing) { %>disabled<%} else { %><% } %>
+							required  
 							value="<% if (editing) { %><%= stud.facultyName %><% } %>"
 							placeholder="Faculty Name"/>
 						</div>
@@ -112,7 +112,7 @@
 
 					<div class="form-row-last">
 						    <!-- <button class="btn btn-primary" type="submit">Register</button> -->
-							<button class="btn btn-success" type="submit"><% if (editing) { %> Update Student <%} else { %> Add Subject <% } %></button>
+							<button class="btn btn-success" type="submit"><% if (editing) { %> Update Subject <%} else { %> Add Subject <% } %></button>
 							<a href="/subject" class="btn btn-warning">View Subject</a>
 					</div>
 			</form>

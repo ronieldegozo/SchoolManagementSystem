@@ -124,8 +124,6 @@ exports.userLogout = (req, res) => {
 
 
 
-
-
   //get add subject
   exports.getAddSubject = (req, res) => {
       res.render('admin/addSubject', {
@@ -136,7 +134,6 @@ exports.userLogout = (req, res) => {
 
   exports.postAddSubject = (req, res) => {
       const {subjectCode, subjectName, units, hour, subjectCategory, facultyName} = req.body;
-
 
       Subject.create({
         subjectCode: subjectCode,
@@ -149,7 +146,7 @@ exports.userLogout = (req, res) => {
 
       .then(result =>{
           console.log(result);
-          res.redirect('dashboard');
+          res.redirect('subject');
       })
 
 
@@ -157,6 +154,72 @@ exports.userLogout = (req, res) => {
           console.log(err)
       })
   }
+
+
+
+  //get edit subjects
+  exports.getEditSubject = (req, res, next) => {
+
+    // const editMode = req.query.edit;
+    const editMode = req.query.edit;
+    if (!editMode) {
+      return res.redirect('/');
+    }
+    const subjectId = req.params.subjectId;
+
+    req.user
+      // .getProducts({ where: { id: studId } })
+      Subject.findAll({ where: { id: subjectId } })
+  
+      .then(products => {
+        const stud = products[0];
+        if (!stud) {
+          return res.redirect('/subject');
+        }
+        res.render('admin/addSubject', {
+          pageTitle: 'Edit Subject',
+          editing: editMode,
+          stud: stud
+        });
+  
+      })
+      .catch(err => console.log(err));
+  };
+  
+  //post edit subjects
+exports.postEditStudent = (req, res) => {
+   
+    const studId = req.body.subjectId;
+    const upsubjectCode = req.body.subjectCode;
+    const upsubjectName = req.body.subjectName;
+    const upunits = req.body.units;
+    const uphour= req.body.hour;
+    const upsubjectCategory = req.body.subjectCategory;
+    const upfacultyName = req.body.facultyName;
+ 
+  
+    Subject.findByPk(studId)
+      .then(subject => {
+        subject.subjectCode = upsubjectCode;
+        subject.subjectName = upsubjectName;
+        subject.units = upunits;
+        subject.hour = uphour;
+        subject.subjectCategory = upsubjectCategory;
+        subject.facultyName = upfacultyName;
+
+        return subject.save();
+      })
+      .then(result => {
+        console.log('Subject Updated!');
+        res.redirect('/subject');
+      })
+      .catch(err => console.log(err));
+  
+}
+
+
+
+
 
 
 //delete subject
@@ -171,11 +234,6 @@ exports.postDeleteSubject = (req,res,next) => {
         req.flash('delete_msg','User Delete Successfully'); 
         return;
       })
-      // .then(student => {
-      //   console.log('DESTROYED PRODUCT');
-      //   req.flash('delete_msg','User Delete Successfully'); 
-      //   res.redirect('student');
-      // })
       .catch(err => console.log(err));
   }
 
